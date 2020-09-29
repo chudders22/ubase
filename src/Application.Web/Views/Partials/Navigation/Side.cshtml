@@ -1,0 +1,20 @@
+﻿<nav class="w-full max-w-xs">
+    <div class="pb-2">
+        <!-- <BackLink target="#">Design system</BackLink> -->
+    </div>
+    <div class="mt-2 pt-4 border-t border-gray-400">
+        <div class="mt-2">
+            <h2 class="text-gray-700 font-semibold">@Model.Name</h2>
+            <ul>
+                @foreach (var page in Model.Children)
+                {
+                    <li class="mt-2">
+                        <a href="@page.Url"
+                           aria-current="@(page.Id == Model.Content.Id ? "current" : null)"
+                           class="font-semibold text-blue-700 hover:underline hover:text-indigo-800">@page.Name</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>

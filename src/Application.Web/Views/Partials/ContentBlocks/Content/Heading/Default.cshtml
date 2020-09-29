@@ -1,0 +1,5 @@
+﻿@using ContentModels = Application.Models.Models.CmsModels;
+@using Perplex.ContentBlocks.Rendering;
+@model IContentBlockViewModel<ContentModels.BlockHeading>
+
+<h2 class="font-semibold text-5xl">@Model.Content.Text</h2>

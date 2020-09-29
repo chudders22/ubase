@@ -1,20 +1,18 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Application.Models.Models.CmsModels.IPageSettingsMixin>
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
 @using Application.Core.Extensions
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="@(Model.PageSettings.Value("elementSeoSettings", "metaDescription"))">
-    
-    <title>@(Model.PageSettings.Value("elementSeoSettings", "metaTitle"))</title>
+    @*<meta name="description" content="@(Model.PageSettings.Value("elementSeoSettings", "metaDescription"))">
 
+    <title>@(Model.PageSettings.Value("elementSeoSettings", "metaTitle"))</title>*@
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="~/css/main.css" />
 </head>
-<body class="">
+<body class="relative bg-gray-200 w-full max-w-full min-h-screen text-lg">
     @*@Html.Action("Header", "Layout")*@
-
     <main class="main">
         @RenderBody()
     </main>

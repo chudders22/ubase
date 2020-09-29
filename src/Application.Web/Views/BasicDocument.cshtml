@@ -1,0 +1,24 @@
+﻿@using ContentModels = Application.Models.Models.CmsModels;
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.OnlineDocument>
+@using Perplex.ContentBlocks.Rendering
+@using Application.Core.Extensions;
+@using Current = Umbraco.Web.Composing.Current;
+@{
+    IPerplexHeaderGetter HeaderGetter = Current.Factory.GetInstance<IPerplexHeaderGetter>();
+    var headers = HeaderGetter.GetHeaders(Model.Content, "blockHeader");
+}
+
+@Html.Partial("Navigation/Main")
+
+<div class="flex mt-8 px-4">
+    @Html.Partial("Navigation/Side")
+    <div class="space-y-4 px-4">
+        <ul>
+            @foreach (var header in headers)
+            {
+                <li>@header.Content.Value("text")</li>
+            }
+        </ul>
+        @Html.RenderContentBlocks(Model.Content)
+    </div>
+</div>

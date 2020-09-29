@@ -46,6 +46,13 @@ namespace Application.Models.Models.CmsModels
 		// properties
 
 		///<summary>
+		/// Content
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("content")]
+		public Perplex.ContentBlocks.Rendering.IContentBlocks Content => this.Value<Perplex.ContentBlocks.Rendering.IContentBlocks>("content");
+
+		///<summary>
 		/// Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]

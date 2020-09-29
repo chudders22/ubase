@@ -1,0 +1,8 @@
+﻿@using ContentModels = Application.Models.Models.CmsModels;
+@using Perplex.ContentBlocks.Rendering;
+@model IContentBlockViewModel<ContentModels.BlockMultipleImages>
+
+@foreach (var image in Model.Content.Images)
+{
+    <img src="@image.Url" alt="" />
+}

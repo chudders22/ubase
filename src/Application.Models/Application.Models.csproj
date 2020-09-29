@@ -128,6 +128,9 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Perplex.ContentBlocks, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Perplex.ContentBlocks.Core.1.5.3\lib\net472\Perplex.ContentBlocks.dll</HintPath>
+    </Reference>
     <Reference Include="Semver, Version=2.0.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Semver.2.0.6\lib\net452\Semver.dll</HintPath>
     </Reference>
@@ -365,6 +368,9 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Tabulate">
+      <HintPath>..\Application.Web\bin\Tabulate.dll</HintPath>
+    </Reference>
     <Reference Include="Umbraco.Core, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.8.6.2\lib\net472\Umbraco.Core.dll</HintPath>
     </Reference>
@@ -385,13 +391,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\CmsModels\Generated\AlertType.generated.cs" />
+    <Compile Include="Models\CmsModels\Generated\AlertTypes.generated.cs" />
     <Compile Include="Models\CmsModels\Generated\Author.generated.cs" />
     <Compile Include="Models\CmsModels\Generated\Authors.generated.cs" />
     <Compile Include="Models\CmsModels\Generated\BasicContent.generated.cs" />
+    <Compile Include="Models\CmsModels\Generated\BlockAlert.generated.cs" />
+    <Compile Include="Models\CmsModels\Generated\BlockBarChart.generated.cs" />
+    <Compile Include="Models\CmsModels\Generated\BlockHeading.generated.cs" />
+    <Compile Include="Models\CmsModels\Generated\BlockList.generated.cs" />
+    <Compile Include="Models\CmsModels\Generated\BlockMultipleImages.generated.cs" />
+    <Compile Include="Models\CmsModels\Generated\BlockPieChart.generated.cs" />
+    <Compile Include="Models\CmsModels\Generated\BlockQuote.generated.cs" />
+    <Compile Include="Models\CmsModels\Generated\BlockSingleImage.generated.cs" />
+    <Compile Include="Models\CmsModels\Generated\BlockStatistic.generated.cs" />
+    <Compile Include="Models\CmsModels\Generated\BlockTable.generated.cs" />
+    <Compile Include="Models\CmsModels\Generated\BlockText.generated.cs" />
     <Compile Include="Models\CmsModels\Generated\Categories.generated.cs" />
     <Compile Include="Models\CmsModels\Generated\Category.generated.cs" />
     <Compile Include="Models\CmsModels\Generated\ContentMixin.generated.cs" />
     <Compile Include="Models\CmsModels\Generated\DataRepositories.generated.cs" />
+    <Compile Include="Models\CmsModels\Generated\DocumentArea.generated.cs" />
+    <Compile Include="Models\CmsModels\Generated\Documents.generated.cs" />
     <Compile Include="Models\CmsModels\Generated\ElementScriptSettings.generated.cs" />
     <Compile Include="Models\CmsModels\Generated\ElementSeoSettings.generated.cs" />
     <Compile Include="Models\CmsModels\Generated\ElementSiteSeoSettings.generated.cs" />
@@ -401,8 +422,10 @@
     <Compile Include="Models\CmsModels\Generated\Home.generated.cs" />
     <Compile Include="Models\CmsModels\Generated\Image.generated.cs" />
     <Compile Include="Models\CmsModels\Generated\Member.generated.cs" />
+    <Compile Include="Models\CmsModels\Generated\NestedListItem.generated.cs" />
     <Compile Include="Models\CmsModels\Generated\NewsArticle.generated.cs" />
     <Compile Include="Models\CmsModels\Generated\NewsLanding.generated.cs" />
+    <Compile Include="Models\CmsModels\Generated\OnlineDocument.generated.cs" />
     <Compile Include="Models\CmsModels\Generated\PageSettingsMixin.generated.cs" />
     <Compile Include="Models\CmsModels\Generated\SiteContainer.generated.cs" />
     <Compile Include="Models\CmsModels\Generated\SiteRoot.generated.cs" />

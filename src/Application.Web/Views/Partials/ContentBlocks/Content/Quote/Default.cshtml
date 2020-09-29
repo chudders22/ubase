@@ -1,0 +1,8 @@
+﻿@using ContentModels = Application.Models.Models.CmsModels;
+@using Perplex.ContentBlocks.Rendering;
+@model IContentBlockViewModel<ContentModels.BlockQuote>
+
+<div>
+    @Model.Content.Text
+    @Model.Content.Source
+</div>

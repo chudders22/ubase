@@ -1,0 +1,39 @@
+﻿@using ContentModels = Application.Models.Models.CmsModels;
+@using Perplex.ContentBlocks.Rendering;
+@using Application.Core.Extensions;
+@using Current = Umbraco.Web.Composing.Current;
+@model IContentBlockViewModel<ContentModels.BlockTable>
+@{
+    var table = Model.Content.Table;
+    ILocalLinkConverter LinkConverter = Current.Factory.GetInstance<ILocalLinkConverter>();
+}
+<table>
+    <thead>
+        <tr>
+            @foreach (var heading in table.Headers)
+            {
+                <th>@heading.Name</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in table.Rows)
+        {
+            <tr>
+                @foreach (var cell in row.Cells)
+                {
+                    if (cell.GetType().Name == "HtmlString")
+                    {
+                        var converted = LinkConverter.ParseHtmlString(cell.ToString());
+                        <td>@Html.Raw(converted)</td>
+                    }
+                    else
+                    {
+                        <td>@cell</td>
+                    }
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+

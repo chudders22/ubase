@@ -1,4 +1,8 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.BasicContent>
-@using ContentModels = Application.Models.Models.CmsModels;
+﻿@using ContentModels = Application.Models.Models.CmsModels;
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.BasicContent>
+@using Perplex.ContentBlocks.Rendering
 
+@Html.Partial("Navigation/Main")
 @Model.Title
+
+@Html.RenderContentBlocks(Model.Content)
