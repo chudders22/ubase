@@ -1,0 +1,10 @@
+﻿@using ContentModels = Application.Models.Models.CmsModels;
+@using Perplex.ContentBlocks.Rendering;
+@model IContentBlockViewModel<ContentModels.BlockList>
+
+<ol class="ml-4 space-y-4" style="list-style-type:lower-alpha;">
+    @foreach (var item in Model.Content.List)
+    {
+        <li class="pl-2">@item.Text</li>
+    }
+</ol>
