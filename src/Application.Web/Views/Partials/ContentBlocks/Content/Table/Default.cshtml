@@ -6,31 +6,61 @@
 @{
     var table = Model.Content.Table;
     ILocalLinkConverter LinkConverter = Current.Factory.GetInstance<ILocalLinkConverter>();
+    List<int> emails = new List<int>();
+    List<int> tel = new List<int>();
+    List<int> urls = new List<int>();
 }
 <table>
+    <caption class="font-2xl font-bold text-left mb-4">@Model.Content.Caption</caption>
     <thead>
         <tr>
-            @foreach (var heading in table.Headers)
+            @foreach (var heading in table.Headers.Select((Value, index) => new { index, Value }))
             {
-                <th>@heading.Name</th>
+                switch (heading.Value.Type)
+                {
+                    case "email":
+                        emails.Add(heading.index);
+                        break;
+                    case "url":
+                        urls.Add(heading.index);
+                        break;
+                    case "tel":
+                        tel.Add(heading.index);
+                        break;
+                }
+                <th class="@(heading.index == 0 ? "pr-4" : "px-4") font-semibold text-left">@heading.Value.Name</th>
             }
         </tr>
     </thead>
-    <tbody>
+    <tbody class="space-y-4">
         @foreach (var row in table.Rows)
         {
             <tr>
-                @foreach (var cell in row.Cells)
+                @foreach (var cell in row.Cells.Select((Value, index) => new { index, Value }))
                 {
-                    if (cell.GetType().Name == "HtmlString")
-                    {
-                        var converted = LinkConverter.ParseHtmlString(cell.ToString());
-                        <td>@Html.Raw(converted)</td>
-                    }
-                    else
-                    {
-                        <td>@cell</td>
-                    }
+                    <td class="@(cell.index == 0 ? "pr-4" : "px-4") py-2">
+                        @if (cell.Value.GetType().Name == "HtmlString")
+                        {
+                            var converted = LinkConverter.ParseHtmlString(cell.Value.ToString());
+                            @Html.Raw(converted)
+                        }
+                        else if (emails.Contains(cell.index))
+                        {
+                            <a href="mailto:@(cell.Value)">@cell.Value</a>
+                        }
+                        else if (tel.Contains(cell.index))
+                        {
+                            <a href="tel:@(cell.Value.ToString().Replace(" ", String.Empty))">@cell.Value</a>
+                        }
+                        else if (urls.Contains(cell.index))
+                        {
+                            <a href="@(cell.Value)">@cell.Value</a>
+                        }
+                        else
+                        {
+                            @cell.Value
+                        }
+                    </td>
                 }
             </tr>
         }
