@@ -1,0 +1,17 @@
+﻿<button type="button" class="w-full text-left border-solid rounded-sm border border-gray-300 py-3 px-4" ng-click="block.edit()">
+    <table>
+        <caption class="font-2xl font-bold text-left mb-4">{{block.data.caption}}</caption>
+        <thead>
+            <tr 
+            >               
+                <th ng-repeat="column in block.data.table.settings.columns" class="px-4 font-semibold text-left">{{column.displayName}}</th>
+            </tr>
+        </thead>
+        <tbody class="space-y-4">   
+            <tr ng-repeat="row in block.data.table.data">
+                <td class="px-4 py-2" ng-repeat="column in block.data.table.settings.columns" ng-bind-html="row[column.displayName]"></td>
+            </tr>
+        </tbody>
+    </table>
+</button>
+

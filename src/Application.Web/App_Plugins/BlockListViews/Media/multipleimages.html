@@ -1,0 +1,8 @@
+﻿<button type="button" class="w-full text-left border-solid rounded-sm border border-gray-300 py-3 px-4" ng-controller="ContentBlocks.Previews.MultipleImageController as vm" ng-click="block.edit()">
+    <div class="flex">
+        <div class="w-64 h-64" ng-repeat="image in vm.imageUrls">
+            <img ng-if="image" ng-src="{{image.metaData.MediaPath}}" class="w-full h-full object-cover" />
+        </div>
+    </div>
+</button>
+

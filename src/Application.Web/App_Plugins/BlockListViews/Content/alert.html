@@ -1,0 +1,26 @@
+﻿<button type="button" class="w-full text-left border-solid rounded-sm border border-gray-300 py-3 px-4" ng-click="block.edit()">
+    <div 
+         ng-class="{
+            'border-blue-700 text-blue-900 bg-blue-200': block.settingsData.displayType === 'Information',
+            'border-orange-700 text-orange-900 bg-orange-200': block.settingsData.displayType === 'Warning',
+            'border-green-700 text-green-900 bg-green-200': block.settingsData.displayType === 'Success',
+            'border-red-700 text-red-900 bg-red-200': block.settingsData.displayType === 'Error or failure',
+         }"
+         class="my-4 w-full max-w-5xl px-8 py-4 border-l-8 no-last-margin tight-p">
+        <span class="sr-only">Information:</span>
+        <div class="space-y-4">
+            <span ng-if="block.data.headline"
+                  class="block font-bold text-2xl xl:text-3xl mb-2"
+                  ng-class="{
+                    'text-blue-700': block.settingsData.displayType === 'Information',
+                    'text-orange-700': block.settingsData.displayType === 'Warning',
+                    'text-green-700': block.settingsData.displayType === 'Success',
+                    'text-red-700': block.settingsData.displayType === 'Error or failure',
+                  }"
+            >
+                {{block.data.headline }}
+            </span>
+            <div class="space-y-4" ng-bind-html="block.data.text"></div>
+        </div>
+    </div>
+</button>

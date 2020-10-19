@@ -1,0 +1,6 @@
+{
+  "javascript": [
+    "~/App_Plugins/BlockListViews/js/image.controller.js",
+    "~/App_Plugins/BlockListViews/js/multipleimages.controller.js"
+  ]
+}

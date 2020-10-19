@@ -1,0 +1,28 @@
+<button type="button" class="w-full text-left border-solid rounded-sm border border-gray-300 py-3 px-4" ng-click="block.edit()">
+    <ul 
+        ng-style="{ 'list-style-type' : (block.settingsData.displayType === 'Alphabetical') ? 'lower-alpha' : null }"
+        ng-class="{'ml-4': block.settingsData.displayType === 'Alphabetical' || block.settingsData.displayType === 'Numeric', 'list-decimal' : block.settingsData.displayType === 'Numeric' }"
+        class="space-y-4"
+    >
+        <li ng-repeat="layoutEntry in block.data.list.layout['Umbraco.BlockList'] track by layoutEntry.contentUdi"
+            ng-init="blockEntry = (block.data.list.contentData | filter : {udi: layoutEntry.contentUdi})[0]"
+            ng-class="{'pl-2': block.settingsData.displayType === 'Alphabetical' || block.settingsData.displayType === 'Numeric'}"
+            class="flex">
+            <span class="flex-shrink-0">
+                <svg class="w-6 h-6 text-blue-700" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" ng-if="block.settingsData.displayType === 'Standard'">
+                    <title>Bullet point</title>
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd" />
+                </svg>
+                <svg class="w-6 h-6 text-green-700" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" ng-if="block.settingsData.displayType === 'Positive'">
+                    <title>Positive checkmark</title>
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <svg class="w-6 h-6 text-red-700" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" ng-if="block.settingsData.displayType === 'Negative'">
+                    <title>Negative cross</title>
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
+            </span>
+            <span class="ml-2 space-y-4" ng-bind-html="blockEntry.text"></span>
+        </li>
+    </ul>
+</button>

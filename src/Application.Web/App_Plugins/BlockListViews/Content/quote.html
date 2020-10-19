@@ -1,0 +1,20 @@
+﻿<button type="button" class="w-full text-left border-solid rounded-sm border border-gray-300 py-3 px-4" ng-click="block.edit()">
+    <blockquote class="my-8 relative text-xl font-semibold text-blue-900">
+        <div class="relative inline-block px-12 xl:px-16 no-last-margin tight-p">
+            <svg viewBox="0 0 24 24"
+                 class="absolute text-gray-500 w-8 h-8 xl:w-10 xl:h-10 left-0 flip">
+                <path fill="currentColor"
+                      d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
+            </svg>
+            <div ng-bind-html="block.data.text"></div>
+            <svg viewBox="0 0 24 24"
+                 class="absolute text-gray-500 w-8 h-8 xl:w-10 xl:h-10 right-0 bottom-0">
+                <path fill="currentColor"
+                      d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
+            </svg>
+        </div>
+        <footer class="mt-4 pl-16 text-gray-700 font-normal text-lg">
+            {{ block.data.source }}
+        </footer>
+    </blockquote>
+</button>
